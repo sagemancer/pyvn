@@ -5,30 +5,12 @@ let recognizing = false
 let player
 let videoPlaying = false
 
-// Just random videos
-let videoIDs = [
-    "NocXEwsJGOQ", "gRtfSfKM3Z0", "7FDAJ8L3lig",
-    "xcKAKEPPGW8", "Ko-kK1ex71E", "zMdcOvaESWE",
-    "9__Ky-cGDMA", "_f_KUw4wfKA", "HWQ-fiMGH_s",
-    "4mnrlK8gdfY", "tVNcp9rKGeY", "HZAnGDoPyGk",
-    "DjocrCuXN-w", "_f_KUw4wfKA", "MqCKQSgjBAk",
-]
+// Add videos here
+let videoID = ""
+// let videoIDs = [""]
 
-let phrasesList = [
-    "zelda", "breath", "wild",
-    "nintendo", "guardian", "ganon",
-    "grass", "sword", "shit",
-    "dude", "bro", "thick",
-]
-
-// Plan to make this a little more recognizable per phrase, not just random
-const getVideoID = () => {
-    const VIDEO_ID = Math.floor(Math.random() * videoIDs.length)
-    const videoFound = videoIDs[VIDEO_ID]
-    return videoFound
-}
-
-console.log(getVideoID())
+// Add phrases here
+let phrasesList = ["zelda"]
 
 const btn = document.getElementById("start-stop-btn")
 const statusEl = document.getElementById("status")
@@ -139,13 +121,16 @@ const stopRecognition = () => {
 }
 
 function onYouTubeIframeAPIReady() {
+    // videoFound = videoIDs[Math.floor(Math.random() * 14) + 1]
+    // console.log(videoFound)
+
     player = new YT.Player("player", {
         height: "360",
         width: "640",
-        videoId: getVideoID(),
+        videoId: videoID,
         playerVars: {
             autoplay: 1,
-            controls: 1,
+            // controls: 1,
             // modestbranding: 1,
             rel: 0,
         },

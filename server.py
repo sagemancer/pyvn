@@ -2,7 +2,7 @@ import http.server
 import socketserver
 import random
 
-PORT_LIST = [1234, 8000, 8080, 1235, 1236, 8001, 8002, 8003]
+PORT_LIST = [1234]
 
 HOST = "localhost"
 PORT = random.choice(PORT_LIST)
