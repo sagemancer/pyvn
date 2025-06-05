@@ -1,8 +1,12 @@
 import http.server
 import socketserver
+import random
+
+PORT_LIST = [1234, 8000, 8080, 1235, 1236, 8001, 8002, 8003]
 
 HOST = "localhost"
-PORT = 8000
+PORT = random.choice(PORT_LIST)
+
 HANDLER = http.server.SimpleHTTPRequestHandler
 
 def run_server():

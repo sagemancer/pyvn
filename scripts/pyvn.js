@@ -5,14 +5,19 @@ let recognizing = false
 let player
 let videoPlaying = false
 
+// Just random videos
 let videoIDs = [
-    ""
+    "NocXEwsJGOQ", "gRtfSfKM3Z0", "7FDAJ8L3lig",
+    "xcKAKEPPGW8", "Ko-kK1ex71E", "zMdcOvaESWE",
+    "9__Ky-cGDMA", "_f_KUw4wfKA", "HWQ-fiMGH_s",
+    "4mnrlK8gdfY", "tVNcp9rKGeY", "HZAnGDoPyGk",
+    "DjocrCuXN-w", "_f_KUw4wfKA", "MqCKQSgjBAk",
 ]
 
 let phrasesList = [
     "zelda", "breath", "wild",
     "nintendo", "guardian", "ganon",
-    "grass", "master sword", "shit",
+    "grass", "sword", "shit",
     "dude", "bro", "thick",
 ]
 
@@ -133,10 +138,10 @@ const stopRecognition = () => {
     }
 }
 
-const onIframeAPIReady = () => {
+function onYouTubeIframeAPIReady() {
     player = new YT.Player("player", {
-        height: "720",
-        width: "1280",
+        height: "360",
+        width: "640",
         videoId: getVideoID(),
         playerVars: {
             autoplay: 1,
@@ -145,17 +150,13 @@ const onIframeAPIReady = () => {
             rel: 0,
         },
         events: {
-            onReady: (event) => {
-                console.log("Frame API: ", event)
-            },
-            onStateChange: onPlayerStateChange
+            onReady: (event) => {},
+            onStateChange: () => {}
         }
     })
 }
 
-const onPlayerStateChange = (event) => { }
-
-const playVideo = () => {
+function playVideo() {
     if (!player) {
         statusEl.textContent = "YouTube API is loading, please wait..."
         setTimeout(playVideo, 500)
@@ -169,10 +170,10 @@ const playVideo = () => {
 
     setTimeout(() => {
         stopVideo()
-    }, 10000)
+    }, 15000)
 }
 
-const stopVideo = () => {
+function stopVideo () {
     if (!videoPlaying) return
     player.pauseVideo()
     videoPlaying = false
