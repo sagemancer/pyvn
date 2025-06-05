@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta
+            charset="UTF-8"
+            http-equiv="Permissions-Policy"
+            content="autoplay=(self), microphone=(), camera=(), fullscreen=*"
+        />
+        <title>Play YouTube Video Now (PYVN)</title>
+        <link rel="stylesheet" href="styles/pyvn.css" />
+    </head>
+    <body>
+        <h1>Play YouTube Video Now (PYVN)</h1>
+        <div id="status">Click "Start Application" and start talking!</div>
+        <button id="start-stop-btn">Start Application</button>
+
+        <div id="player-container">
+            <div id="player"></div>
+        </div>
+
+        <pre
+            id="console-log"
+            aria-live="polite"
+            aria-atomic="true"
+            role="log"
+        ></pre>
+
+        <script src="https://www.youtube.com/iframe_api"></script>
+        <script src="scripts/pyvn.js"></script>
+    </body>
+</html>
